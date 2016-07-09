@@ -113,6 +113,12 @@ active_link_to 'Users', users_path, :wrap_tag => :li
 # => <li class="active"><a href="/users" class="active">Users</a></li>
 ```
 
+You can also specify class names to the wrap_tag using an array, in this case the specific class names for the link are independent from the wrap tag ones:
+```ruby
+active_link_to 'Users', users_path, :wrap_tag => [:li, { :class => 'testing-wrap' }], :class => 'testing'
+# => <li class="testing-wrap active"><a href="/users" class="testing active">Users</a></li>
+```
+
 ## Helper Methods
 You may directly use methods that `active_link_to` relies on.
 

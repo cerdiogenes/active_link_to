@@ -166,6 +166,12 @@ class ActiveLinkToTest < MiniTest::Test
 
     link = active_link_to('label', '/root', :wrap_tag => :li, :class => 'testing')
     assert_html link, 'li.testing.active a.testing.active[href="/root"]', 'label'
+
+    link = active_link_to('label', '/root', :wrap_tag => [:li, { :class => 'testing-wrap' }], :class => 'testing')
+    assert_html link, 'li.testing-wrap.active a.testing.active[href="/root"]', 'label'
+
+    link = active_link_to('label', '/root', :wrap_tag => [:li, { :class => 'testing-wrap' }])
+    assert_html link, 'li.testing-wrap.active a.active[href="/root"]', 'label'
   end
 
   def test_active_link_to_with_active_disable
